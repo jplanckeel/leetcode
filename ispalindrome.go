@@ -5,22 +5,19 @@ import "strconv"
 func isPalindrome(x int) bool {
 
 	numStr := strconv.Itoa(x)
-	max := len(numStr)
-
-	var lr []int
-	var rl []int
+	var l []string
 
 	for _, v := range numStr {
-		dlr, _ := strconv.Atoi(string(v))
-		lr = append(lr, dlr)
-		drl, _ := strconv.Atoi(string(numStr[max]))
-		rl = append(lr, drl)
-		max -= 1
+		l = append(l, string(v))
 	}
 
 
-    for i := range rl {
-        if rl[i] != lr[i] {
+	max := len(numStr)
+
+
+    for i := range l {
+		max += -1
+        if l[i] != l[max] {
             return false
         }
     }
